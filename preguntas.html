@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENCUESTA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>ENCUESTA</h1>
+    <h2>¿Cuando te encontras solo, sentis que necesitas de alguien para divertirte?</h2> 
+    <span>no</span>
+    <input type="range" min="0" max="10" step="1" id="valor1">
+    <span>si</span>
+    <h2>¿Te consideras una persona feliz?</h2>
+    <span>no</span>
+    <input type="range" min="0" max="10" step="1" id="valor2"> 
+    <span> si</span>
+    <h2>¿Cuando te enfrentas a una situacion dificil o que genera mucha presion en vos, sentis presion en el pecho, dificultades, al respirar, temblores en el cuerpo que no podes controlar por tus propios medios,etc?</h2>
+    <span>no</span>
+    <input type="range" min="0" max="10" step="1" id="valor3">
+    <span>si</span>
+    <h2>¿Sos una persona que le afectan las situaciones cotidianas de la vida ,mas de lo normal o que no sabes controlarlas?</h2>
+    <span>no</span>
+    <input type="range" min="0" max="10" step="1" id="valor4">
+    <span >si</span>
+    <h2>¿Sabes controlar tus emociones, mantenerte estable emocionalmente y controlar situaciones inesperadas de la vida sin alterarte?</h2>
+    <span>si</span>
+    <input type="range" min="0" max="10" step="1" id="valor5">
+    <span >no</span>
+<br><br>
+    <input type="submit" value="ENVIAR" onclick="mostrarResultado()">
+<br><br> <h4>Sus resultados fueron: </h4>
+    <span id="resultado"></span>
+
+    <script>
+        function mostrarResultado(){
+            var valor1 = parseInt(document.getElementById("valor1").value);
+            var valor2 = parseInt(document.getElementById("valor2").value);
+            var valor3 = parseInt(document.getElementById("valor3").value);
+            var valor4 = parseInt(document.getElementById("valor4").value);
+            var valor5 = parseInt(document.getElementById("valor5").value);
+
+            var prom = (valor1+valor2+valor3+valor4+valor5)/5
+        
+            if(prom<=3){
+                resultado = prom + " - Feliz"
+            }else if(prom>=7){
+                resultado = prom + " - Depresión"                
+            }else{
+                resultado = prom + " - Ansiedad"
+            }
+
+            document.getElementById("resultado").innerHTML = resultado;
+        };
+    </script>
+    
+</body>
+</html>
